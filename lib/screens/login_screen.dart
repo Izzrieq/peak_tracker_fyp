@@ -60,49 +60,59 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.blue.shade900,
         automaticallyImplyLeading: false,
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(
-              controller: emailController,
-              decoration: InputDecoration(
-                labelText: "Email",
-                border: OutlineInputBorder(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(height: 40),
+              Center(
+                child: Image.asset(
+                  'assets/peaklogo.png',
+                  height: 120, // adjust size as needed
+                ),
               ),
-            ),
-            SizedBox(height: 10),
-            TextField(
-              controller: passwordController,
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: "Password",
-                border: OutlineInputBorder(),
+              SizedBox(height: 30),
+              TextField(
+                controller: emailController,
+                decoration: InputDecoration(
+                  labelText: "Email",
+                  border: OutlineInputBorder(),
+                ),
               ),
-            ),
-            SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: loginUser,
-              child: Text("Login"),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue.shade900,
-                foregroundColor: Colors.white,
+              SizedBox(height: 10),
+              TextField(
+                controller: passwordController,
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: "Password",
+                  border: OutlineInputBorder(),
+                ),
               ),
-            ),
-            SizedBox(height: 10),
-            Text(message, style: TextStyle(color: Colors.red)),
-            SizedBox(height: 10),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "/signup");
-              },
-              child: Text(
-                "Don't have an account? Sign Up",
-                style: TextStyle(color: Colors.blue.shade900),
+              SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: loginUser,
+                child: Text("Login"),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue.shade900,
+                  foregroundColor: Colors.white,
+                ),
               ),
-            ),
-          ],
+              SizedBox(height: 10),
+              Text(message, style: TextStyle(color: Colors.red)),
+              SizedBox(height: 10),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "/signup");
+                },
+                child: Text(
+                  "Don't have an account? Sign Up",
+                  style: TextStyle(color: Colors.blue.shade900),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
